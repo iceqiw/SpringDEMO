@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: admin-api
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      profile: dev
+      label: master
+
+server:
+  port: 8080
+  context-path: /api/j
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+
+logging:
+  file: ${spring.application.name}.log
+
