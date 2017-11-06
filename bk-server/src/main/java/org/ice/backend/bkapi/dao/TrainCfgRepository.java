@@ -1,6 +1,6 @@
 package org.ice.backend.bkapi.dao;
 
-import org.ice.backend.bkapi.model.TrainCfg;
+import org.ice.backend.bkapi.dao.model.TrainCfg;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

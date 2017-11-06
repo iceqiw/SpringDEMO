@@ -1,4 +1,4 @@
-package org.ice.backend.bkapi.vo;
+package org.ice.server.api.common.apicommon.vo;
 
 
 import lombok.Data;

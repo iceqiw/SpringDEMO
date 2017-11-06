@@ -1,10 +1,11 @@
-package org.ice.backend.bkapi.controller;
+package org.ice.backend.bkapi.service;
 
 import org.apache.log4j.Logger;
 import org.ice.backend.bkapi.dao.TrainCfgRepository;
-import org.ice.backend.bkapi.model.TrainCfg;
-import org.ice.backend.bkapi.service.ITrainCfgService;
-import org.ice.backend.bkapi.vo.ResponseMsg;
+
+import org.ice.backend.bkapi.dao.model.TrainCfg;
+import org.ice.server.api.common.apicommon.api.TrainCfgService;
+import org.ice.server.api.common.apicommon.vo.ResponseMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,20 +13,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/trainSearch")
-public class TrainCfgController {
+public class TrainCfgServiceImpl implements TrainCfgService {
 
     private final Logger logger = Logger.getLogger(getClass());
 
-    @Autowired
-    private ITrainCfgService trainCfgService;
 
     @Autowired
     private TrainCfgRepository trainCfgRepository;
 
     @RequestMapping(value = "/getOne", method = RequestMethod.GET)
-    public TrainCfg findById(@RequestParam Long id) {
+    public TrainCfg findById(@RequestParam(name = "id") Long id) {
         logger.info(id);
-        return trainCfgService.findById(id);
+        return trainCfgRepository.findById(id);
     }
 
     @RequestMapping(value = "/page", method = RequestMethod.GET)
@@ -51,9 +50,9 @@ public class TrainCfgController {
         return ResponseMsg.success("ok");
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @Override
     public String test() {
-        return"ok";
+        return "ok";
     }
 
 }

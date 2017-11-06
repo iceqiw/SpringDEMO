@@ -1,4 +1,4 @@
-package org.ice.backend.bkapi.model;
+package org.ice.backend.bkapi.dao.model;
 
 
 import lombok.Data;

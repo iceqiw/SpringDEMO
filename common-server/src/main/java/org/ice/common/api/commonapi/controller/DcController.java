@@ -1,8 +1,8 @@
 package org.ice.common.api.commonapi.controller;
 
 import org.apache.log4j.Logger;
-import org.ice.common.api.commonapi.client.AdminApiClient;
-import org.ice.common.api.commonapi.model.TrainCfg;
+import org.ice.common.api.commonapi.client.TrainCfgClient;
+import org.ice.server.api.common.apicommon.vo.TrainCfgVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,15 +21,15 @@ public class DcController {
     private final Logger logger = Logger.getLogger(getClass());
 
     @Autowired
-    AdminApiClient dcClient;
+    TrainCfgClient dcClient;
 
     @Value("${mane}")
-    private  String ttt;
+    private String ttt;
 
     @GetMapping("/consumer")
-    public List<TrainCfg> dc() {
+    public String dc() {
         logger.info(ttt);
-        return dcClient.page();
+        return dcClient.test();
     }
 
 }

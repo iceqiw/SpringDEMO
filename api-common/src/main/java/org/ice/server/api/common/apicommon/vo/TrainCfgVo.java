@@ -1,10 +1,10 @@
-package org.ice.common.api.commonapi.model;
+package org.ice.server.api.common.apicommon.vo;
 
 
 import lombok.Data;
 
 @Data
-public class TrainCfg {
+public class TrainCfgVo {
 
     private Long id;
 
