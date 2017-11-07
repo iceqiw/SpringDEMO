@@ -9,7 +9,6 @@ spring:
 
 server:
   port: 8080
-  context-path: /api/j
 
 eureka:
   client:

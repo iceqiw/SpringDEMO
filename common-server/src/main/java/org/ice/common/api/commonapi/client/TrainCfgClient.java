@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
  * @create 2017/6/24.
  * @blog http://blog.didispace.com
  */
-@FeignClient(value = "admin-api",path = "/api/j/trainCfg")
+@FeignClient(value = "admin-api",path = "/trainCfg")
 public interface TrainCfgClient extends TrainCfgService {
 
 }

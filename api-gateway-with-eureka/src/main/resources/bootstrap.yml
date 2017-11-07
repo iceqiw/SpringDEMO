@@ -10,6 +10,14 @@ spring:
 server:
   port: 3101
 
+zuul:
+  routes:
+    api-admin:
+      path: /api/j/common/**
+      serviceId: eureka-consumer
+    api-common:
+      serviceId:   admin-api
+      path: /api/j/admin/**
 
 eureka:
   client:
