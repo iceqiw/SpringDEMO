@@ -2,13 +2,15 @@ package org.ice.backend.bkapi.service;
 
 import org.apache.log4j.Logger;
 import org.ice.backend.bkapi.dao.TrainCfgRepository;
-
 import org.ice.backend.bkapi.dao.model.TrainCfg;
 import org.ice.server.api.common.apicommon.api.TrainCfgService;
 import org.ice.server.api.common.apicommon.vo.ResponseMsg;
+import org.ice.server.api.common.apicommon.vo.TrainCfgVo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,15 +23,25 @@ public class TrainCfgServiceImpl implements TrainCfgService {
     @Autowired
     private TrainCfgRepository trainCfgRepository;
 
-    @RequestMapping(value = "/getOne", method = RequestMethod.GET)
-    public TrainCfg findById(@RequestParam(name = "id") Long id) {
+    @Override
+    public TrainCfgVo findById(@PathVariable(name = "id") Long id) {
         logger.info(id);
-        return trainCfgRepository.findById(id);
+        TrainCfg t = trainCfgRepository.findById(id);
+        TrainCfgVo out = new TrainCfgVo();
+        BeanUtils.copyProperties(t, out);
+        return out;
     }
 
     @RequestMapping(value = "/page", method = RequestMethod.GET)
-    public List<TrainCfg> page() {
-        return trainCfgRepository.findAll();
+    public List<TrainCfgVo> page() {
+        List<TrainCfg> listOrigin= trainCfgRepository.findAll();
+        List<TrainCfgVo> out=new ArrayList<>();
+        for (Object source: listOrigin ) {
+            TrainCfgVo target= new TrainCfgVo();
+            BeanUtils.copyProperties(source , target);
+            out.add(target);
+        }
+        return  out;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)

@@ -3,6 +3,7 @@ package org.ice.server.api.common.apicommon.vo;
 
 import lombok.Data;
 
+
 @Data
 public class TrainCfgVo {
 

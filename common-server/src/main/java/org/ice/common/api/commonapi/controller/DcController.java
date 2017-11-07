@@ -27,9 +27,14 @@ public class DcController {
     private String ttt;
 
     @GetMapping("/consumer")
-    public String dc() {
+    public TrainCfgVo dc() {
         logger.info(ttt);
-        return dcClient.test();
+        return dcClient.findById(1L);
     }
 
+    @GetMapping("/consumer2")
+    public List<TrainCfgVo> dc2() {
+        logger.info(ttt);
+        return dcClient.page();
+    }
 }
