@@ -12,7 +12,7 @@ public interface MsgRepository extends JpaRepository<Msg, Long> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE Msg u SET u.keyword= :keyword, u.content= :content WHERE u.id = :id ")
-    void update(@Param("id") Long id, @Param("keyword") String keyword, @Param("content") String content);
+    @Query("UPDATE Msg u SET u.keyword= :keyword, u.content= :content,u.tplKey= :tplKey WHERE u.id = :id ")
+    void update(@Param("id") Long id, @Param("keyword") String keyword, @Param("content") String content, @Param("tplKey") String tplKey);
 
 }

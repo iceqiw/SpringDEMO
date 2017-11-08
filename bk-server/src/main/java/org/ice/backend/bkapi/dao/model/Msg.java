@@ -16,6 +16,8 @@ public class Msg {
     private Long id;
     @Column(name = "keyword")
     private String keyword;
+    @Column(name = "tpl_key")
+    private String tplKey;
     @Column(name = "content")
     private String content;
 

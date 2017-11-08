@@ -40,7 +40,7 @@ public class MsgServiceImpl {
 
     @RequestMapping(value = "/edit", method = RequestMethod.PUT)
     public ResponseMsg edit(@RequestBody Msg t) {
-        msgRepository.update(t.getId(), t.getKeyword(), t.getContent());
+        msgRepository.update(t.getId(), t.getKeyword(), t.getContent(),t.getTplKey());
         return ResponseMsg.success("ok");
     }
 
