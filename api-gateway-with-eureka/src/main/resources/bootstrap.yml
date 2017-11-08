@@ -16,8 +16,9 @@ zuul:
       path: /api/j/common/**
       serviceId: eureka-consumer
     api-common:
-      serviceId:   admin-api
       path: /api/j/admin/**
+      serviceId:   admin-api
+
 
 eureka:
   client:
